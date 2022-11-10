@@ -18,7 +18,8 @@ jobs:
     needs: [Actions1-Job1, Actions1-Job2]
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Actions1-Job2" > /tmp/hello.text
+      - shell: bash
+        run: echo "Actions1-Job2" > /tmp/hello.text
       - name: 'Upload Artifact'
           uses: actions/upload-artifact@v3
           with:
