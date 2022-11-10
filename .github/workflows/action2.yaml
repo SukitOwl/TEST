@@ -27,4 +27,4 @@ jobs:
       - name: Get secret
         env:
           SECRET_WORD: ${{ secrets.SECRET_WORD }}
-      - run: echo $SECRET_WORD
+        run: echo $SECRET_WORD
