@@ -26,12 +26,12 @@ jobs:
           name: my-artifact
           path: /tmp/hello.text
 
-  # Actions1-Job4:
-  #   needs: [Actions1-Job3]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Download a single artifact
-  #       uses: actions/download-artifact@v3
-  #       with:
-  #         name: my-artifact
-  #     - run: echo $(cat hello.text)
+  Actions1-Job4:
+    needs: [Actions1-Job3]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my-artifact
+      - run: echo $(cat hello.text)
