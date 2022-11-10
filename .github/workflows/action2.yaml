@@ -24,6 +24,7 @@ jobs:
     steps:
       - run: echo "Actions2-Job1"
       - run: echo ${{ inputs.environment }}
+      - uses: actions/checkout@v2
       - name: Get secret
         env:
           SECRET_WORD: ${{ secrets.SECRET_WORD }}
