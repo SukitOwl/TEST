@@ -19,7 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - shell: bash
-        run: echo "Actions1-Job2" > /tmp/hello.text
+        run: |
+          echo "Actions1-Job2"
       - name: 'Upload Artifact'
           uses: actions/upload-artifact@v3
           with:
