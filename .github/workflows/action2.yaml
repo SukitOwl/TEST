@@ -4,11 +4,7 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
 on: [push]
 jobs:
-  Explore-GitHub-Actions1:
+  Actions2-Job1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Explore-GitHub-Actions1"
-  Explore-GitHub-Actions2:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Explore-GitHub-Actions2"
+      - run: echo "Actions2-Job1"
