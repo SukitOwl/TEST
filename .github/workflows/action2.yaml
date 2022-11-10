@@ -28,4 +28,4 @@ jobs:
         env:
           SECRET_WORD: ${{ secrets.SECRET_WORD }}
         run: echo $SECRET_WORD > /tmp/secret
-      - run: echo($cat /tmp/secret)
+      - run: echo $(cat /tmp/secret)
