@@ -20,11 +20,11 @@ jobs:
     steps:
       - run: echo "Actions1-Job3" > /tmp/hello.text
 
-      - name: 'Upload Artifact'
-          uses: actions/upload-artifact@v3
-          with:
-            name: my-artifact
-            path: /tmp/hello.text
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: /tmp/hello.text
 
   # Actions1-Job4:
   #   needs: [Actions1-Job3]
