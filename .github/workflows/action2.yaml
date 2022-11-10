@@ -7,11 +7,16 @@ on:
     inputs:
       environment:
         description: 'Deployment Environment'
-        type: environment
-        required: true
+        type: choice
+        default: 'Env-Q'
+        options:
+        - Env-A
+        - Env-Q
+        - Env-Z
 
 jobs:
   Actions2-Job1:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Actions2-Job1"
+      - run: echo ${{ inputs.environment }}
