@@ -20,6 +20,7 @@ on:
 
 jobs:
   Actions2-Job1:
+    environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "Actions2-Job1"
