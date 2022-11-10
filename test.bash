@@ -2,10 +2,10 @@
 
 echo "TESTING ENV"
 
-if [[ $SECRET_WORD -eq "HELLO" ]]
+if [[ $SECRET_WORD = "HELLO" ]]
 then
   echo "Bravo"
-elif [[ $SECRET_WORD -eq "" ]]
+elif [[ $SECRET_WORD = "" ]]
 then
   echo "NOT WORKING"
 else
