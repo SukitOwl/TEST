@@ -5,18 +5,18 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   workflow_dispatch:
     inputs:
-      # environment:
-      #   description: 'Deployment Environment'
-      #   type: choice
-      #   default: 'Env-Q'
-      #   options:
-      #   - Env-A
-      #   - Env-Q
-      #   - Env-Z
       environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true
+        description: 'Deployment Environment'
+        type: choice
+        default: 'Env-Q'
+        options:
+        - Env-A
+        - Env-Q
+        - Env-Z
+      # environment:
+      #   description: 'Environment to run tests against'
+      #   type: environment
+      #   required: true
 
 jobs:
   Actions2-Job1:
