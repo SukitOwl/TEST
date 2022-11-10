@@ -21,3 +21,4 @@ jobs:
       - run: echo "Actions2-Job1"
       - run: echo ${{ inputs.environment }}
       - run: echo ${{ secrets.ENV_NAME }}
+      - run: echo ${{ secrets.SECRET_WORD }}
