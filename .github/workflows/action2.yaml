@@ -28,4 +28,5 @@ jobs:
       - name: Get secret
         env:
           SECRET_WORD: ${{ secrets.SECRET_WORD }}
-        run: ./test.bash
+          WORD: TEST_ENV
+        run: ./test.bash && echo $TEST_ENV
