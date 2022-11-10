@@ -32,6 +32,6 @@ jobs:
         run: ./test.bash && echo $WORD
       - name: Step 2 - GitHub Action if statement (true)
         env:
-          WHO_TO_TRUST: ${{ secrets.SECRET_WORD }}
+          WHO_TO_TRUST: ${{ secrets.SECRET_WORDDD }}
         if:  env.SECRET_WORD == 'SECRET_WORD'
         run: echo "I know what the secret token is!"
