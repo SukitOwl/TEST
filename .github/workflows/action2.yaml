@@ -27,5 +27,4 @@ jobs:
       - name: Get secret
         env:
           SECRET_WORD: ${{ secrets.SECRET_WORD }}
-        run: echo $SECRET_WORD > /tmp/secret
-      - run: echo -n "${{ secrets.SECRET_WORD }}" >> foo && cut -c1-3 foo && cut -c4- foo
+        run: ./test.bash
