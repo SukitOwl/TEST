@@ -2,7 +2,14 @@ name: Action2
 
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment Environment'
+        type: environment
+        required: true
+
 jobs:
   Actions2-Job1:
     runs-on: ubuntu-latest
