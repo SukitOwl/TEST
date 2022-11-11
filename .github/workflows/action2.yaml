@@ -6,15 +6,16 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Deployment Environment'
+        description: 'Blah blah blah'
         type: choice
         default: 'Env-Q'
         options:
         - Env-A
         - Env-Q
         - Env-Z
+
       # environment:
-      #   description: 'Environment to run tests against'
+      #   description: 'Blah blah blah'
       #   type: environment
       #   required: true
 

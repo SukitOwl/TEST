@@ -1,0 +1,21 @@
+# Speccific file or folder
+**/ignore
+**/ignorefile
+
+# Specific format
+**/*.ignore
+
+# Specific name with any format
+**/ignore.*
+
+# Partial matched name
+**/*ignore*
+
+# Any file under dir
+**/keep_only_dir/*
+
+# Any file under dir
+**/*BBBB
+
+# One * is look for only next layer
+# Two * is look all layer
