@@ -32,6 +32,7 @@ jobs:
           SECRET_WORD: ${{ secrets.SECRET_WORD }}
           WORD: TEST_ENV
         run: ./test.bash && echo $WORD
+        run: git describe --always --tag
       - name: Step 2 - GitHub Action if statement (true)
         env:
           WHO_TO_TRUST: ${{ secrets.SECRET_WORD }}
