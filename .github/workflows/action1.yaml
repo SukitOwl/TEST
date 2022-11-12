@@ -1,38 +1,31 @@
-name: Action1
+name: Deployment
 
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deploy environment'
+        type: choice
+        default: 'develop'
+        options:
+        - develop
+
 jobs:
-  Actions1-Job1:
+  push-registry:
+    environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Actions1-Job1"
-      - run: echo "Actions1-Job1 repeated"
-  Actions1-Job2:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Actions1-Job2"
-
-
-  Actions1-Job3:
-    needs: [Actions1-Job1, Actions1-Job2]
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Actions1-Job3" > /tmp/hello.text
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: my-artifact
-          path: /tmp/hello.text
-
-  Actions1-Job4:
-    needs: [Actions1-Job3]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download a single artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: my-artifact
-      - run: echo $(cat hello.text)
+      - uses: actions/checkout@v2
+      - run: docker build . -t practices-workflow:$(git describe --always --tag)
+      # - name: Get secret
+      #   env:
+      #     SECRET_WORD: ${{ secrets.SECRET_WORD }}
+      #     WORD: TEST_ENV
+      #   run: ./test.bash && echo $WORD | git describe --always --tag
+      # - name: Step 2 - GitHub Action if statement (true)
+      #   env:
+      #     WHO_TO_TRUST: ${{ secrets.SECRET_WORD }}
+      #   if:  env.WHO_TO_TRUST == 'SECRET_WORD'
+      #   run: echo "I know what the secret token is!"
