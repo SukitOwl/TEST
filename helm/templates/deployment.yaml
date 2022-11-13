@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $.Values.app }}
+  labels:
+    app: {{ $.Values.app }}
+spec:
+  replicas: {{ $.Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ $.Values.app }}
+  template:
+    metadata:
+      labels:
+        app: {{ $.Values.app }}
+    spec:
+      containers:
+        - name: {{ $.Values.app }}
+          image: "{{ $.Values.image.registry }}:{{ $.Values.image.tag }}"
+          imagePullPolicy: Always
+          args: ["watch", "-n", "1", "echo $(date +%s)"]
+
+          env:
+          {{- range $key, $val := $.Values.env.normal }}
+          - name: {{ $key }}
+            value: {{ $val }}
+          {{- end}}
+
+          {{- range $key, $val := $.Values.env.secret }}
+          - name: {{ $key }}
+            valueFrom:
+              secretKeyRef:
+                name: {{ $.Values.secret.name }}
+                key: {{ $key }}
+          {{- end}}
+
+          # livenessProbe:
+          # readinessProbe:
+
+          resources:
+            {{- toYaml $.Values.resources | nindent 12 }}
+          securityContext:
+            runAsNonRoot: false
+      restartPolicy: Always

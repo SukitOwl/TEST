@@ -1,0 +1,7 @@
+apiVersion: v2
+name: test
+description: test
+type: application
+version: 0.1.0
+appVersion: 1.0.0
+icon: https://miro.medium.com/max/1400/0*h4YW_NZkuLpaL4uU.png

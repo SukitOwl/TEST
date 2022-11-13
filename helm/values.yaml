@@ -1,0 +1,25 @@
+replicaCount: 1
+
+app: test
+
+image:
+  registry: 689093831747.dkr.ecr.ap-southeast-1.amazonaws.com/test
+  tag: latest
+
+# args: :data-pints-monitor:bootrun
+
+resource:
+  limits:
+    cpu: 1000m
+    memory: 1000Mi
+  requests:
+    cpu: 300m
+    memory: 100Mi
+
+secret:
+  name: app-test-secret
+env:
+  normal:
+    variable1: value1
+  secret:
+    variable4: value4
