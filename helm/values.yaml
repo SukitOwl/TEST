@@ -23,3 +23,4 @@ env:
     variable1: value1
   secret:
     variable4: value4
+    variable5: value5
