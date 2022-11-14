@@ -14,6 +14,7 @@ spec:
       labels:
         app: {{ $.Values.app }}
     spec:
+      serviceAccountName: default/secret-manager-read-test-cluster
       containers:
         - name: {{ $.Values.app }}
           image: "{{ $.Values.image.registry }}:{{ $.Values.image.tag }}"
