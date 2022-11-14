@@ -8,10 +8,9 @@ on:
       environment:
         description: 'Deploy environment'
         type: choice
-        default: 'staging'
+        default: 'develop'
         options:
-        - staging
-        - production
+        - develop
 
 jobs:
   push-registry:
