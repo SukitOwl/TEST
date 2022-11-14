@@ -8,9 +8,10 @@ on:
       environment:
         description: 'Deploy environment'
         type: choice
-        default: 'develop'
+        default: 'staging'
         options:
-        - develop
+        - staging
+        - production
 
 jobs:
   push-registry:
@@ -32,12 +33,11 @@ jobs:
 
       - name: Set image tag
         run: echo "IMAGE_TAG=`echo $(git describe --always --tag)`" >> $GITHUB_ENV
-      # Next step can use $IMAGE_TAG
 
       - name: Build, tag, and push image to Amazon ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: test
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:lateIMAGE_TAGst .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:IMAGE_TAG
